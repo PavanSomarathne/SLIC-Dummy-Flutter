@@ -10,11 +10,6 @@ class _YourProfileEditState extends State<YourProfileEdit> {
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
@@ -27,10 +22,13 @@ class _YourProfileEditState extends State<YourProfileEdit> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.arrow_right),
+        child: Icon(
+          Icons.done,
+          size: 40.0,
+        ),
       ),
       appBar: AppBar(
-        title: Text('Your Profile'),
+        title: Text('Edit Profile'),
       ),
       body: Container(
         child: ListView(
@@ -105,10 +103,11 @@ class _YourProfileEditState extends State<YourProfileEdit> {
     AssetImage assImg = AssetImage('images/35.png');
     Image img = Image(
       image: assImg,
-      width: 125.0,
-      height: 125.0,
+      width: 150.0,
+      height: 150.0,
     );
     return Container(
+      margin: EdgeInsets.only(top: 15.0, bottom: 5.0),
       child: img,
     );
   }
