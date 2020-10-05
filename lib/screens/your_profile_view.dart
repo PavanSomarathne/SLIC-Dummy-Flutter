@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import 'your_profile_edit.dart';
 
 class YourProfileView extends StatefulWidget {
   @override
@@ -18,10 +21,15 @@ class _YourProfileViewState extends State<YourProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => YourProfileEdit()),
+          );
+        },
         tooltip: 'Increment',
         child: Icon(
-          Icons.edit,
+          MdiIcons.accountEdit,
           size: 35.0,
         ),
       ),
@@ -185,7 +193,7 @@ class _YourProfileViewState extends State<YourProfileView> {
   }
 
   Widget getImageAsset() {
-    AssetImage assImg = AssetImage('images/35.png');
+    AssetImage assImg = AssetImage('images/avt.png');
     Image img = Image(
       image: assImg,
       width: 150.0,
