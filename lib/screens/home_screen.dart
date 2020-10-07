@@ -3,6 +3,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
 import 'package:slic_dummy_flutter/widgets/LifePolicy.dart';
 import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
+import 'package:slic_dummy_flutter/screens/ContactUs.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -91,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // ...
                   },
                 ),
-                 ListTile(
+                ListTile(
                   leading: Icon(
                     MdiIcons.briefcaseAccount,
                     color: Colors.black,
@@ -117,8 +118,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                   onTap: () {
-                    // Update the state of the app.
-                    // ...
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ContactUs()),
+                    );
                   },
                 ),
                 ListTile(
