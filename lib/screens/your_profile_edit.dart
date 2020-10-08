@@ -99,7 +99,84 @@ class _YourProfileEditState extends State<YourProfileEdit> {
                       hintText: 'Enter your Last name',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0))),
-                ))
+                )),
+            Container(
+                height: 45,
+                margin: EdgeInsets.only(
+                    top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Nic',
+                      hintText: 'Enter your Nic No',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0))),
+                )),
+            Container(
+                height: 45,
+                margin: EdgeInsets.only(
+                    top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Emai',
+                      hintText: 'Enter your Email Address',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0))),
+                )),
+            Container(
+                height: 45,
+                margin: EdgeInsets.only(
+                    top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Address Line 1',
+                      hintText: 'Enter your Address',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0))),
+                )),
+            Container(
+                height: 45,
+                margin: EdgeInsets.only(
+                    top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Address Line 2',
+                      hintText: 'Enter your Address',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0))),
+                )),
+            Container(
+                height: 45,
+                margin: EdgeInsets.only(
+                    top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Address Line 3',
+                      hintText: 'Enter your Address',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0))),
+                )),
+            Container(
+                height: 45,
+                margin: EdgeInsets.only(
+                    top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Mobile No(Main)',
+                      hintText: 'Enter your Phone No',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0))),
+                )),
+            Container(
+                height: 45,
+                margin: EdgeInsets.only(
+                    top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Home Phone Number',
+                      hintText: 'Enter your Phone No',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0))),
+                )),
           ],
         ),
       ),

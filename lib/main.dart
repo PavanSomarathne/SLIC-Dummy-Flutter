@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:slic_dummy_flutter/screens/home_screen.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/road_assistance.dart';
+import './screens/your_profile_edit.dart';
+import './screens/your_profile_view.dart';
+import './screens/add_policy.dart';
+import 'package:slic_dummy_flutter/screens/login.dart';
+import './screens/UserPersionalDetails.dart';
+import 'package:slic_dummy_flutter/screens/userLoginDetails.dart';
 import 'package:slic_dummy_flutter/screens/life_policy_details.dart';
 import 'package:slic_dummy_flutter/screens/road_assistance.dart';
 import './screens/your_profile_edit.dart';

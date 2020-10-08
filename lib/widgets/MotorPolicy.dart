@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MotorPolicy extends StatelessWidget {
+  var policy;
+  MotorPolicy(this.policy);
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -9,18 +12,26 @@ class MotorPolicy extends StatelessWidget {
     var padding = MediaQuery.of(context).padding;
     return Container(
       width: (width / 2) - 10,
-     
       child: Container(
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              tileMode: TileMode.mirror,
-              colors: [
-                Color.fromRGBO(255,27,10, 1),
-                Color.fromRGBO(255,105,36, 1),
-              ]),
+          gradient: policy != null && policy['stat'] != 'EXPIRED'
+              ? LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  tileMode: TileMode.mirror,
+                  colors: [
+                      Color.fromRGBO(255, 27, 10, 1),
+                      Color.fromRGBO(255, 105, 36, 1),
+                    ])
+              : LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  tileMode: TileMode.mirror,
+                  colors: [
+                      Colors.grey,
+                      Colors.blueGrey,
+                    ]),
           borderRadius: BorderRadius.all(Radius.circular(8)),
           boxShadow: [
             BoxShadow(
@@ -40,7 +51,7 @@ class MotorPolicy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "CM PVT CAR",
+                    policy['name'] == null ? "Divi Thilina" : policy['name'],
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   Icon(
@@ -61,7 +72,7 @@ class MotorPolicy extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    "D1000",
+                    policy['no'] == null ? "Policy NO : " : policy['no'],
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -80,9 +91,11 @@ class MotorPolicy extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    "INFORCE",
+                    policy['stat'] == null ? "INFORCE" : policy['stat'],
                     style: TextStyle(
-                        color: Colors.white,
+                        color: policy != null && policy['stat'] != 'EXPIRED'
+                            ? Colors.white
+                            : Colors.red[700],
                         fontSize: 18,
                         fontWeight: FontWeight.w700),
                   )
@@ -92,7 +105,7 @@ class MotorPolicy extends StatelessWidget {
                 color: Colors.blue,
               ),
               Text(
-                "Matures In 18 Years",
+                "Matures In ${policy['y']} Years",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,

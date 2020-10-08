@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/road_assistance.dart';
 import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
 import 'package:slic_dummy_flutter/widgets/LifePolicy.dart';
 import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
+import 'package:slic_dummy_flutter/screens/ContactUs.dart';
 
 import './tabs_insurance_details.dart';
 
@@ -12,11 +15,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void selectInsuranceproducts(BuildContext ctx) {
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-      return TabsInsurancedetails();
-    }));
-  }
+  final lPolicies = [
+    {'name': 'Divi Thilina', 'no': 'D1022', 'stat': 'INFORCE', 'y': '18'},
+    {'name': 'Divi Thilina', 'no': 'D1033', 'stat': 'EXPIRED', 'y': '0'},
+    {'name': 'Divi Thilina', 'no': 'D8062', 'stat': 'EXPIRED', 'y': '0'},
+  ];
+
+  final mPolicies = [
+    {'name': 'CM PVT CAR', 'no': 'M1052', 'stat': 'INFORCE', 'y': '13'},
+    {'name': 'PVT CAR', 'no': 'M1053', 'stat': 'INFORCE', 'y': '11'},
+    {'name': 'PVT BIKE', 'no': 'M8042', 'stat': 'INFORCE', 'y': '5'},
+    {'name': 'PVT MOTOR E', 'no': 'M8062', 'stat': 'EXPIRED', 'y': '0'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -125,8 +135,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                   onTap: () {
-                    // Update the state of the app.
-                    // ...
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ContactUs()),
+                    );
                   },
                 ),
                 ListTile(
@@ -180,15 +192,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                     height: 140,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: List.generate(3, (index) {
-                        return LifePolicy();
-                      }),
-                    ),
+                    child: ListView.builder(
+                        itemCount: lPolicies.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => LifePolicy(news: results[index]),
+                              //   ),
+                              // );
+                            },
+                            child: LifePolicy(lPolicies[index]),
+                          );
+                        }),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Icon(
+                      MdiIcons.arrowRightDropCircle,
+                      size: 32,
+                      color: Colors.black,
+                    ),
                   ),
                   Text("Motor Insurance Policies"),
                   new Divider(
@@ -196,13 +226,34 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                     height: 140,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: List.generate(3, (index) {
-                        return MotorPolicy();
-                      }),
-                    ),
+                    child: ListView.builder(
+                        itemCount: mPolicies.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => LifePolicy(news: results[index]),
+                              //   ),
+                              // );
+                            },
+                            child: MotorPolicy(mPolicies[index]),
+                          );
+                        }),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Icon(
+                      MdiIcons.arrowRightDropCircle,
+                      size: 32,
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -285,28 +336,49 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Image(
-                                image: new AssetImage("images/tow.png"),
-                                width: 40,
-                                height: 40,
-                                alignment: Alignment.center,
+                      InkWell(
+                        onTap: () {
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => RoadAssistance(),
+                          //   ),
+                          // );
+                        },
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RoadAssistance(),
                               ),
-                              Text(
-                                "Assistance",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                            );
+                          },
+                          child: Container(
+                            height: 68,
+                            width: 100,
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              )),
+                              child: Column(
+                                children: [
+                                  Image(
+                                    image: new AssetImage("images/tow.png"),
+                                    width: 40,
+                                    height: 40,
+                                    alignment: Alignment.center,
+                                  ),
+                                  Text(
+                                    "Assistance",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -366,27 +438,37 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.library_books,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "News",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NewsScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.library_books,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "News",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
