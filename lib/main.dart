@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
 import 'package:slic_dummy_flutter/screens/home_screen.dart';
 import 'package:slic_dummy_flutter/screens/news_screen.dart';
 import 'package:slic_dummy_flutter/screens/road_assistance.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
       ),
       home: //LifePolicyDetails(),
           //MotorPolicyDetails(),
-          TabsInsurancedetails(),
+          CovidDashboard(),
     );
   }
 }
