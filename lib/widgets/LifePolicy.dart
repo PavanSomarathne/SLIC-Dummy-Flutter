@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class LifePolicy extends StatelessWidget {
+  var policy;
+  LifePolicy(this.policy);
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -9,18 +11,26 @@ class LifePolicy extends StatelessWidget {
     var padding = MediaQuery.of(context).padding;
     return Container(
       width: (width / 2) - 10,
-     
       child: Container(
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              tileMode: TileMode.mirror,
-              colors: [
-                Color.fromRGBO(134, 75, 171, 1),
-                Color.fromRGBO(61, 90, 254, 1),
-              ]),
+          gradient: policy != null && policy['stat'] != 'EXPIRED'
+              ? LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  tileMode: TileMode.mirror,
+                  colors: [
+                      Color.fromRGBO(134, 75, 171, 1),
+                      Color.fromRGBO(61, 90, 254, 1),
+                    ])
+              : LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  tileMode: TileMode.mirror,
+                  colors: [
+                      Colors.grey,
+                      Colors.blueGrey,
+                    ]),
           borderRadius: BorderRadius.all(Radius.circular(8)),
           boxShadow: [
             BoxShadow(
@@ -40,7 +50,7 @@ class LifePolicy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Divi Thilina",
+                    policy['name'] == null ? "Divi Thilina" : policy['name'],
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   Icon(
@@ -61,7 +71,7 @@ class LifePolicy extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    "D1000",
+                    policy['no'] == null ? "Policy NO : " : policy['no'],
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -80,9 +90,11 @@ class LifePolicy extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    "INFORCE",
+                    policy['stat'] == null ? "INFORCE" : policy['stat'],
                     style: TextStyle(
-                        color: Colors.white,
+                        color: policy != null && policy['stat'] != 'EXPIRED'
+                            ? Colors.white
+                            : Colors.red[700],
                         fontSize: 18,
                         fontWeight: FontWeight.w700),
                   )
@@ -92,7 +104,7 @@ class LifePolicy extends StatelessWidget {
                 color: Colors.blue,
               ),
               Text(
-                "Matures In 18 Years",
+                "Matures In ${policy['y']} Years",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,

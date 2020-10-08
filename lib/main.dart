@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:slic_dummy_flutter/screens/emergency_service.dart';
 import 'package:slic_dummy_flutter/screens/home_screen.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
 import 'package:slic_dummy_flutter/screens/road_assistance.dart';
 import './screens/your_profile_edit.dart';
 import './screens/your_profile_view.dart';
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: RoadAssistance(),
+      home: HomeScreen(),
     );
   }
 }
