@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class MotorPolicy extends StatelessWidget {
   var policy;
   MotorPolicy(this.policy);
-
+//motor policy
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
