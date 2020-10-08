@@ -27,6 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
     {'name': 'PVT BIKE', 'no': 'M8042', 'stat': 'INFORCE', 'y': '5'},
     {'name': 'PVT MOTOR E', 'no': 'M8062', 'stat': 'EXPIRED', 'y': '0'},
   ];
+  void selectInsuranceproducts(BuildContext ctx) {
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+      return TabsInsurancedetails();
+    }));
+  }
 
   @override
   Widget build(BuildContext context) {
