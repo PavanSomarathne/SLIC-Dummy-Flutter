@@ -4,12 +4,20 @@ import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
 import 'package:slic_dummy_flutter/widgets/LifePolicy.dart';
 import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
 
+import './tabs_insurance_details.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void selectInsuranceproducts(BuildContext ctx) {
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+      return TabsInsurancedetails();
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -91,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // ...
                   },
                 ),
-                 ListTile(
+                ListTile(
                   leading: Icon(
                     MdiIcons.briefcaseAccount,
                     color: Colors.black,
@@ -307,27 +315,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.work,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "Products",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      InkWell(
+                        onTap: () => selectInsuranceproducts(context),
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.work,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Products",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

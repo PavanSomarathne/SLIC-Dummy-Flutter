@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:slic_dummy_flutter/screens/home_screen.dart';
 import 'package:slic_dummy_flutter/screens/life_policy_details.dart';
 import 'package:slic_dummy_flutter/screens/road_assistance.dart';
@@ -6,7 +7,14 @@ import './screens/your_profile_edit.dart';
 import './screens/your_profile_view.dart';
 import 'screens/add_policy.dart';
 
+import './screens/generalinsurance_solution.dart';
+import './screens/Motor_policy_details_screen.dart';
+import './screens/tabs_insurance_details.dart';
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyApp());
 }
 
@@ -34,7 +42,9 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LifePolicyDetails(),
+      home: //LifePolicyDetails(),
+          //MotorPolicyDetails(),
+          TabsInsurancedetails(),
     );
   }
 }
