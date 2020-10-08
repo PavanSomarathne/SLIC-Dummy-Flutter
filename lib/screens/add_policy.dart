@@ -197,8 +197,22 @@ class AddPolicyState extends State<AddPolicy> {
             child: Column(
               children: [
                 Text("Preview"),
-                Visibility(visible: _radioShow, child: MotorPolicy()),
-                Visibility(visible: !_radioShow, child: LifePolicy()),
+                Visibility(
+                    visible: _radioShow,
+                    child: MotorPolicy({
+                      'name': 'CM PVT CAR',
+                      'no': 'M1052',
+                      'stat': 'INFORCE',
+                      'y': '13'
+                    })),
+                Visibility(
+                    visible: !_radioShow,
+                    child: LifePolicy({
+                      'name': 'Divi Thilina',
+                      'no': 'D1022',
+                      'stat': 'INFORCE',
+                      'y': '18'
+                    })),
               ],
             ),
           ),
