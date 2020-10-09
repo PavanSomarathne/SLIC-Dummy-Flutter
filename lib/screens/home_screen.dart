@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:slic_dummy_flutter/screens/add_policy.dart';
 import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/offers_screen.dart';
 import 'package:slic_dummy_flutter/screens/road_assistance.dart';
 import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
 import 'package:slic_dummy_flutter/widgets/LifePolicy.dart';
@@ -181,6 +183,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         appBar: AppBar(
+          actions: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPolicy(),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 10.0),
+                child: Icon(
+                  MdiIcons.plus,
+                  color: Colors.white,
+                  size: 35,
+                ),
+              ),
+            )
+          ],
           title: Text('Dashboard'),
           backgroundColor: Color.fromRGBO(0, 172, 192, 100),
         ),
@@ -419,27 +441,37 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.new_releases,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "Offers",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OffersScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.new_releases,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Offers",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
