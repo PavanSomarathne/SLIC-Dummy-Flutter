@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 
 class MotorPolicyDetails extends StatefulWidget {
+  final policy;
+   MotorPolicyDetails({Key key, this.policy}) : super(key: key);
+
   @override
   _MotorPolicyDetailsState createState() => _MotorPolicyDetailsState();
 }
@@ -167,7 +170,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                                   ),
                                   Container(
                                     child: Text(
-                                      'xxxxxxxxx',
+                                      widget.policy['no'],
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18),
