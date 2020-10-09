@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class NewsItem extends StatelessWidget {
   var newsItem;
@@ -46,6 +47,46 @@ class NewsItem extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
               ),
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      MdiIcons.clockOutline,
+                      color: Colors.black,
+                    ),
+                    SizedBox(width: 3),
+                    Text(
+                      newsItem == null ? "xx:xx" : newsItem['time'],
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 15),
+                Row(
+                  children: [
+                    Icon(
+                      MdiIcons.calendarOutline,
+                      color: Colors.black,
+                    ),
+                    SizedBox(width: 3),
+                    Text(
+                      newsItem == null ? "xxx/xx/xx" : newsItem['date'],
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 10),
+              ],
             ),
           ],
         ),

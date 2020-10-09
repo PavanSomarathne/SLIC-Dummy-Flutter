@@ -3,6 +3,10 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:slic_dummy_flutter/screens/add_policy.dart';
 import 'package:slic_dummy_flutter/screens/news_screen.dart';
 import 'package:slic_dummy_flutter/screens/offers_screen.dart';
+import 'package:slic_dummy_flutter/screens/Motor_policy_details_screen.dart';
+import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/reportaccident.dart';
 import 'package:slic_dummy_flutter/screens/road_assistance.dart';
 import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
 import 'package:slic_dummy_flutter/widgets/LifePolicy.dart';
@@ -261,12 +265,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => LifePolicy(news: results[index]),
-                              //   ),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MotorPolicyDetails(
+                                    policy: mPolicies[index],
+                                  ),
+                                ),
+                              );
                             },
                             child: MotorPolicy(mPolicies[index]),
                           );
@@ -316,52 +322,72 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.web,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "E-Services",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CovidDashboard(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.web,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "E-Services",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Image(
-                                image: new AssetImage("images/acc.png"),
-                                width: 42,
-                                height: 42,
-                                alignment: Alignment.center,
-                              ),
-                              Text(
-                                "Accident",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ReportAccident(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Image(
+                                  image: new AssetImage("images/acc.png"),
+                                  width: 42,
+                                  height: 42,
+                                  alignment: Alignment.center,
+                                ),
+                                Text(
+                                  "Accident",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

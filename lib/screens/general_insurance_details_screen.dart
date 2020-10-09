@@ -81,6 +81,7 @@ class GeneralInsuranceDetails extends StatelessWidget {
                                       wordSpacing: 5,
                                       fontSize: 14,
                                     ),
+                                    textAlign: TextAlign.justify,
                                   ),
                                 ]),
                           ),

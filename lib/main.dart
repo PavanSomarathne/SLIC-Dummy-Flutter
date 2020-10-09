@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
 import 'package:slic_dummy_flutter/screens/home_screen.dart';
 import 'package:slic_dummy_flutter/screens/userLoginDetails.dart';
+
+import './screens/reportaccident.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

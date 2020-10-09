@@ -16,7 +16,7 @@ var DUMMY_GENERALINSURANCEDETAILS = [
       gIbenefits2: 'loyality rewards from reputed brands and companies',
       gIbenefits3: 'vehicle  can be repaired on manufacture s specification',
       gIbenefits4:
-          ' vehicles can repaired in SLIIC Motor plus garages without owner account',
+          'vehicles can repaired in SLIIC Motor plus garages without owner account',
       gIbenefits5: '24 hours Customer care service',
       gIdescrption:
           'SLIC Motor plus insurance helps you keep up with pace of today s demanding life style.This Insurance Policy is designed with vehicl agents and repair centers islandwide,ensuring 24*7 unrivaled service and coverage.The policy facilities hassle free vehicle repairs and maintainace,and also includes rewardsand benefits',

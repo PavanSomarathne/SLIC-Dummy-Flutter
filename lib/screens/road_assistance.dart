@@ -69,7 +69,11 @@ class _RoadAssistanceState extends State<RoadAssistance> {
         'url': 'images/e3cover.jpg',
         "tel": "077 731 2500"
       },
-      {'name': 'You Drink We Drive', 'url': 'images/e4cover.png', "tel": "077 740 0040"},
+      {
+        'name': 'You Drink We Drive',
+        'url': 'images/e4cover.png',
+        "tel": "077 740 0040"
+      },
     ];
 
     return Scaffold(
@@ -391,7 +395,7 @@ class _RoadAssistanceState extends State<RoadAssistance> {
     setState(() {
       _currentPosition = new CameraPosition(
         target: LatLng(_locationData1.latitude, _locationData1.longitude),
-        zoom: 15.4746,
+        zoom: 13.4746,
       );
     });
   }
@@ -415,6 +419,36 @@ class _RoadAssistanceState extends State<RoadAssistance> {
         markerId: MarkerId('SLIC Garage 3'),
         position: LatLng(6.9087, 79.9729),
         infoWindow: InfoWindow(title: 'SLIC Garage '),
+        icon: garageIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Garage Moratuwa'),
+        position: LatLng(6.7935, 79.8776),
+        infoWindow: InfoWindow(title: 'SLIC Garage Moratuwa'),
+        icon: garageIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Garage Kaldemulla'),
+        position: LatLng(6.8066, 79.8777),
+        infoWindow: InfoWindow(title: 'SLIC Garage Kaldemulla'),
+        icon: garageIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Garage 3'),
+        position: LatLng(6.7911, 79.8866),
+        infoWindow: InfoWindow(title: 'SLIC Garage Rawatawatta'),
+        icon: garageIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Garage 3'),
+        position: LatLng(6.8283, 79.8716),
+        infoWindow: InfoWindow(title: 'SLIC Garage Dehiwala'),
+        icon: garageIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Garage 3'),
+        position: LatLng(6.8407, 79.8649),
+        infoWindow: InfoWindow(title: 'SLIC Garage Kadana'),
         icon: garageIcon,
       ),
     ]);
@@ -443,6 +477,37 @@ class _RoadAssistanceState extends State<RoadAssistance> {
       Marker(
         markerId: MarkerId('SLIC Branch Malabe'),
         position: LatLng(6.9287, 79.9729),
+        infoWindow: InfoWindow(title: 'SLIC Branch Malabe'),
+        icon: branchIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Branch Panadura'),
+        position: LatLng(6.7068, 79.9086),
+        infoWindow: InfoWindow(title: 'SLIC Branch Panadura'),
+        icon: branchIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Branch Moratuwa'),
+        position: LatLng(6.7880, 79.8853),
+        infoWindow: InfoWindow(title: 'SLIC Branch Moratuwa'),
+        icon: branchIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Branch Kaldemulla'),
+        position: LatLng(6.8075, 79.8828),
+        infoWindow: InfoWindow(title: 'SLIC Branch Kaldemulla'),
+        icon: branchIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Branch Rathmalana'),
+        position: LatLng(6.8189, 79.8741),
+        infoWindow: InfoWindow(title: 'SLIC Branch Rathmalana'),
+        icon: branchIcon,
+      ),
+      Marker(
+        markerId: MarkerId('SLIC Branch Mt lAVINIA'),
+        position: LatLng(6.8345, 79.8667),
+        infoWindow: InfoWindow(title: 'SLIC Branch Mt lAVINIA'),
         icon: branchIcon,
       ),
     ]);
