@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
 import 'package:slic_dummy_flutter/screens/news_screen.dart';
 import 'package:slic_dummy_flutter/screens/road_assistance.dart';
 import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
@@ -297,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => RoadAssistance(),
+                              builder: (context) => CovidDashboard(),
                             ),
                           );
                         },
