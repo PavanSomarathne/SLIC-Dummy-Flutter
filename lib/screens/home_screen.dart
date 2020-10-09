@@ -10,6 +10,8 @@ import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
 import 'package:slic_dummy_flutter/screens/ContactUs.dart';
 
 import './tabs_insurance_details.dart';
+import 'life_insurance_details_screen.dart';
+import 'life_policy_details.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -225,12 +227,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => LifePolicy(news: results[index]),
-                              //   ),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LifePolicyDetails(),
+                                ),
+                              );
                             },
                             child: LifePolicy(lPolicies[index]),
                           );
