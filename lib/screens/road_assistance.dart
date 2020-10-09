@@ -69,7 +69,11 @@ class _RoadAssistanceState extends State<RoadAssistance> {
         'url': 'images/e3cover.jpg',
         "tel": "077 731 2500"
       },
-      {'name': 'You Drink We Drive', 'url': 'images/e4cover.png', "tel": "077 740 0040"},
+      {
+        'name': 'You Drink We Drive',
+        'url': 'images/e4cover.png',
+        "tel": "077 740 0040"
+      },
     ];
 
     return Scaffold(

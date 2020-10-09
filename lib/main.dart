@@ -19,6 +19,8 @@ import './screens/generalinsurance_solution.dart';
 import './screens/Motor_policy_details_screen.dart';
 import './screens/tabs_insurance_details.dart';
 
+import './screens/reportaccident.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
@@ -52,7 +54,9 @@ class MyApp extends StatelessWidget {
       ),
       home: //LifePolicyDetails(),
           //MotorPolicyDetails(),
-          TabsInsurancedetails(),
+          // TabsInsurancedetails(),
+          //ReportAccident(),
+          HomeScreen(),
     );
   }
 }
