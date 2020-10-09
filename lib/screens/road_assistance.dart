@@ -421,31 +421,31 @@ class _RoadAssistanceState extends State<RoadAssistance> {
         infoWindow: InfoWindow(title: 'SLIC Garage '),
         icon: garageIcon,
       ),
-       Marker(
+      Marker(
         markerId: MarkerId('SLIC Garage Moratuwa'),
         position: LatLng(6.7935, 79.8776),
         infoWindow: InfoWindow(title: 'SLIC Garage Moratuwa'),
         icon: garageIcon,
       ),
-       Marker(
+      Marker(
         markerId: MarkerId('SLIC Garage Kaldemulla'),
         position: LatLng(6.8066, 79.8777),
         infoWindow: InfoWindow(title: 'SLIC Garage Kaldemulla'),
         icon: garageIcon,
       ),
-       Marker(
+      Marker(
         markerId: MarkerId('SLIC Garage 3'),
         position: LatLng(6.7911, 79.8866),
         infoWindow: InfoWindow(title: 'SLIC Garage Rawatawatta'),
         icon: garageIcon,
       ),
-       Marker(
+      Marker(
         markerId: MarkerId('SLIC Garage 3'),
         position: LatLng(6.8283, 79.8716),
         infoWindow: InfoWindow(title: 'SLIC Garage Dehiwala'),
         icon: garageIcon,
       ),
-       Marker(
+      Marker(
         markerId: MarkerId('SLIC Garage 3'),
         position: LatLng(6.8407, 79.8649),
         infoWindow: InfoWindow(title: 'SLIC Garage Kadana'),
