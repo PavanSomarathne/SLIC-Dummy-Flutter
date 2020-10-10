@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:slic_dummy_flutter/screens/Mcash.dart';
 import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
 import 'package:slic_dummy_flutter/widgets/LifePolicy.dart';
 import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
@@ -135,8 +136,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                   onTap: () {
-                    // Update the state of the app.
-                    // ...
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mcash()),
+                    );
                   },
                 ),
                 ListTile(
