@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:slic_dummy_flutter/screens/Mcash.dart';
+import 'package:flutter/services.dart';
+import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
 import 'package:slic_dummy_flutter/screens/home_screen.dart';
-import 'package:slic_dummy_flutter/screens/ContactUs.dart';
-import 'package:slic_dummy_flutter/screens/road_assistance.dart';
-import './screens/your_profile_edit.dart';
-import './screens/your_profile_view.dart';
-import './screens/add_policy.dart';
 import 'package:slic_dummy_flutter/screens/login.dart';
-import './screens/UserPersionalDetails.dart';
 import 'package:slic_dummy_flutter/screens/userLoginDetails.dart';
-import 'package:slic_dummy_flutter/screens/life_policy_details.dart';
-import 'package:slic_dummy_flutter/screens/road_assistance.dart';
-import './screens/your_profile_edit.dart';
-import './screens/your_profile_view.dart';
-import 'screens/add_policy.dart';
+
+import './screens/reportaccident.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyApp());
 }
 
@@ -25,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //

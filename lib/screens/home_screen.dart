@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:slic_dummy_flutter/screens/Mcash.dart';
+import 'package:slic_dummy_flutter/screens/add_policy.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/offers_screen.dart';
+import 'package:slic_dummy_flutter/screens/Motor_policy_details_screen.dart';
+import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/reportaccident.dart';
+import 'package:slic_dummy_flutter/screens/road_assistance.dart';
 import 'package:slic_dummy_flutter/screens/your_profile_view.dart';
 import 'package:slic_dummy_flutter/widgets/LifePolicy.dart';
 import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
 import 'package:slic_dummy_flutter/screens/ContactUs.dart';
+
+import './tabs_insurance_details.dart';
+import 'life_insurance_details_screen.dart';
+import 'life_policy_details.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,6 +24,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final lPolicies = [
+    {'name': 'Divi Thilina', 'no': 'D1022', 'stat': 'INFORCE', 'y': '18'},
+    {'name': 'Divi Thilina', 'no': 'D1033', 'stat': 'EXPIRED', 'y': '0'},
+    {'name': 'Divi Thilina', 'no': 'D8062', 'stat': 'EXPIRED', 'y': '0'},
+  ];
+
+  final mPolicies = [
+    {'name': 'CM PVT CAR', 'no': 'M1052', 'stat': 'INFORCE', 'y': '13'},
+    {'name': 'PVT CAR', 'no': 'M1053', 'stat': 'INFORCE', 'y': '11'},
+    {'name': 'PVT BIKE', 'no': 'M8042', 'stat': 'INFORCE', 'y': '5'},
+    {'name': 'PVT MOTOR E', 'no': 'M8062', 'stat': 'EXPIRED', 'y': '0'},
+  ];
+  void selectInsuranceproducts(BuildContext ctx) {
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+      return TabsInsurancedetails();
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -162,6 +192,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         appBar: AppBar(
+          actions: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPolicy(),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 10.0),
+                child: Icon(
+                  MdiIcons.plus,
+                  color: Colors.white,
+                  size: 35,
+                ),
+              ),
+            )
+          ],
           title: Text('Dashboard'),
           backgroundColor: Color.fromRGBO(0, 172, 192, 100),
         ),
@@ -178,15 +228,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                     height: 140,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: List.generate(3, (index) {
-                        return LifePolicy();
-                      }),
-                    ),
+                    child: ListView.builder(
+                        itemCount: lPolicies.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LifePolicyDetails(),
+                                ),
+                              );
+                            },
+                            child: LifePolicy(lPolicies[index]),
+                          );
+                        }),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Icon(
+                      MdiIcons.arrowRightDropCircle,
+                      size: 32,
+                      color: Colors.black,
+                    ),
                   ),
                   Text("Motor Insurance Policies"),
                   new Divider(
@@ -194,13 +262,36 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                     height: 140,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: List.generate(3, (index) {
-                        return MotorPolicy();
-                      }),
-                    ),
+                    child: ListView.builder(
+                        itemCount: mPolicies.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MotorPolicyDetails(
+                                    policy: mPolicies[index],
+                                  ),
+                                ),
+                              );
+                            },
+                            child: MotorPolicy(mPolicies[index]),
+                          );
+                        }),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Icon(
+                      MdiIcons.arrowRightDropCircle,
+                      size: 32,
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -234,77 +325,118 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.web,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "E-Services",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CovidDashboard(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.web,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "E-Services",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Image(
-                                image: new AssetImage("images/acc.png"),
-                                width: 42,
-                                height: 42,
-                                alignment: Alignment.center,
-                              ),
-                              Text(
-                                "Accident",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ReportAccident(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Image(
+                                  image: new AssetImage("images/acc.png"),
+                                  width: 42,
+                                  height: 42,
+                                  alignment: Alignment.center,
+                                ),
+                                Text(
+                                  "Accident",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Image(
-                                image: new AssetImage("images/tow.png"),
-                                width: 40,
-                                height: 40,
-                                alignment: Alignment.center,
+                      InkWell(
+                        onTap: () {
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => RoadAssistance(),
+                          //   ),
+                          // );
+                        },
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RoadAssistance(),
                               ),
-                              Text(
-                                "Assistance",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                            );
+                          },
+                          child: Container(
+                            height: 68,
+                            width: 100,
+                            child: Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              )),
+                              child: Column(
+                                children: [
+                                  Image(
+                                    image: new AssetImage("images/tow.png"),
+                                    width: 40,
+                                    height: 40,
+                                    alignment: Alignment.center,
+                                  ),
+                                  Text(
+                                    "Assistance",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -313,75 +445,98 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.work,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "Products",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      InkWell(
+                        onTap: () => selectInsuranceproducts(context),
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.work,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Products",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.new_releases,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "Offers",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OffersScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.new_releases,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Offers",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.library_books,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "News",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NewsScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.library_books,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "News",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
