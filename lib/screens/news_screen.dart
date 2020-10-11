@@ -9,6 +9,7 @@ class NewsScreen extends StatefulWidget {
 
 class _NewsScreenState extends State<NewsScreen> {
   bool activeSearch;
+  FocusNode focusNode;
 
   var newsItems = [
     {
@@ -79,6 +80,7 @@ As the national insurer to the nation our main objective is to fulfill our duty 
     super.initState();
     activeSearch = false;
     results = newsItems;
+    focusNode = FocusNode();
   }
 
   @override
@@ -110,6 +112,7 @@ As the national insurer to the nation our main objective is to fulfill our duty 
       return AppBar(
         leading: Icon(Icons.search),
         title: TextField(
+          focusNode: focusNode,
           style: TextStyle(fontSize: 20.0, color: Colors.white),
           onChanged: (x) {
             _search(x);
@@ -136,11 +139,16 @@ As the national insurer to the nation our main objective is to fulfill our duty 
       );
     } else {
       return AppBar(
-        title: Text("Coporate"),
+        title: Text("Coporate News"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () => setState(() => activeSearch = true),
+            onPressed: () {
+              setState(
+                () => activeSearch = true,
+              );
+              focusNode.requestFocus();
+            },
           ),
         ],
       );

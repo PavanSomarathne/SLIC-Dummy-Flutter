@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:slic_dummy_flutter/screens/Mcash.dart';
+import 'package:slic_dummy_flutter/screens/add_policy.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/offers_screen.dart';
 import 'package:slic_dummy_flutter/screens/Motor_policy_details_screen.dart';
 import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
 import 'package:slic_dummy_flutter/screens/news_screen.dart';
@@ -11,6 +15,8 @@ import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
 import 'package:slic_dummy_flutter/screens/ContactUs.dart';
 
 import './tabs_insurance_details.dart';
+import 'life_insurance_details_screen.dart';
+import 'life_policy_details.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -86,6 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
       'acti': 'Expired'
     },
   ];
+
+  bool isScrolled = false;
+  bool isScrolled1 = false;
   void selectInsuranceproducts(BuildContext ctx) {
     Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
       return TabsInsurancedetails();
@@ -96,6 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    ScrollController _scrollController = new ScrollController();
+    ScrollController _scrollController1 = new ScrollController();
     var padding = MediaQuery.of(context).padding;
     return Scaffold(
         drawer: Drawer(
@@ -216,8 +227,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                   onTap: () {
-                    // Update the state of the app.
-                    // ...
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mcash()),
+                    );
                   },
                 ),
                 ListTile(
@@ -240,6 +253,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         appBar: AppBar(
+          actions: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPolicy(),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 10.0),
+                child: Icon(
+                  MdiIcons.plus,
+                  color: Colors.white,
+                  size: 35,
+                ),
+              ),
+            )
+          ],
           title: Text('Dashboard'),
           backgroundColor: Color.fromRGBO(0, 172, 192, 100),
         ),
@@ -248,79 +281,149 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               padding: EdgeInsets.all(10),
               height: height - (padding.top + 160 + kToolbarHeight),
-              child: Column(
-                children: [
-                  Text("Life Insurance Policies"),
-                  new Divider(
-                    color: Colors.black38,
-                  ),
-                  Container(
-                    height: 140,
-                    child: ListView.builder(
-                        itemCount: lPolicies.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => LifePolicy(news: results[index]),
-                              //   ),
-                              // );
-                            },
-                            child: LifePolicy(lPolicies[index]),
-                          );
-                        }),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Icon(
-                      MdiIcons.arrowRightDropCircle,
-                      size: 32,
-                      color: Colors.black,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text("Life Insurance Policies"),
+                    new Divider(
+                      color: Colors.black38,
                     ),
-                  ),
-                  Text("Motor Insurance Policies"),
-                  new Divider(
-                    color: Colors.black38,
-                  ),
-                  Container(
-                    height: 140,
-                    child: ListView.builder(
-                        itemCount: mPolicies.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => MotorPolicyDetails(
-                                    policy: mPolicies[index],
+                    Container(
+                      height: 140,
+                      child: ListView.builder(
+                          controller: _scrollController,
+                          itemCount: lPolicies.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => LifePolicy(news: results[index]),
+                                //   ),
+                                // );
+                              },
+                              child: LifePolicy(lPolicies[index]),
+                            );
+                          }),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    isScrolled
+                        ? Align(
+                            alignment: Alignment.bottomRight,
+                            child: InkWell(
+                              onTap: () {
+                                _scrollController.animateTo(
+                                  _scrollController.position.minScrollExtent,
+                                  duration: Duration(seconds: 1),
+                                  curve: Curves.fastOutSlowIn,
+                                );
+                                setState(() {
+                                  isScrolled = false;
+                                });
+                              },
+                              child: Icon(
+                                MdiIcons.arrowLeftDropCircle,
+                                size: 32,
+                                color: Colors.black,
+                              ),
+                            ),
+                          )
+                        : Align(
+                            alignment: Alignment.bottomRight,
+                            child: InkWell(
+                              onTap: () {
+                                _scrollController.animateTo(
+                                  _scrollController.position.maxScrollExtent,
+                                  duration: Duration(seconds: 1),
+                                  curve: Curves.fastOutSlowIn,
+                                );
+                                setState(() {
+                                  isScrolled = true;
+                                });
+                              },
+                              child: Icon(
+                                MdiIcons.arrowRightDropCircle,
+                                size: 32,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                    Text("Motor Insurance Policies"),
+                    new Divider(
+                      color: Colors.black38,
+                    ),
+                    Container(
+                      height: 140,
+                      child: ListView.builder(
+                          controller: _scrollController1,
+                          itemCount: mPolicies.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MotorPolicyDetails(
+                                      policy: mPolicies[index],
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                            child: MotorPolicy(mPolicies[index]),
-                          );
-                        }),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Icon(
-                      MdiIcons.arrowRightDropCircle,
-                      size: 32,
-                      color: Colors.black,
+                                );
+                              },
+                              child: MotorPolicy(mPolicies[index]),
+                            );
+                          }),
                     ),
-                  )
-                ],
+                    SizedBox(
+                      height: 5,
+                    ),
+                    isScrolled1
+                        ? Align(
+                            alignment: Alignment.bottomRight,
+                            child: InkWell(
+                              onTap: () {
+                                _scrollController1.animateTo(
+                                  _scrollController1.position.minScrollExtent,
+                                  duration: Duration(seconds: 1),
+                                  curve: Curves.fastOutSlowIn,
+                                );
+                                setState(() {
+                                  isScrolled1 = false;
+                                });
+                              },
+                              child: Icon(
+                                MdiIcons.arrowLeftDropCircle,
+                                size: 32,
+                                color: Colors.black,
+                              ),
+                            ),
+                          )
+                        : Align(
+                            alignment: Alignment.bottomRight,
+                            child: InkWell(
+                              onTap: () {
+                                _scrollController1.animateTo(
+                                  _scrollController1.position.maxScrollExtent,
+                                  duration: Duration(seconds: 1),
+                                  curve: Curves.fastOutSlowIn,
+                                );
+                                setState(() {
+                                  isScrolled1 = true;
+                                });
+                              },
+                              child: Icon(
+                                MdiIcons.arrowRightDropCircle,
+                                size: 32,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -500,27 +603,37 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.new_releases,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "Offers",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OffersScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.new_releases,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Offers",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
