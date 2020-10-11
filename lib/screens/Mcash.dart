@@ -53,7 +53,7 @@ class Mcash extends StatelessWidget {
                     primaryColorDark: Theme.of(context).primaryColor,
                   ),
                   child: TextField(
-                    obscureText: true,
+                    // obscureText: true,
                     style: TextStyle(color: Theme.of(context).primaryColor),
                     decoration: InputDecoration(
                       hintText: 'Select mCash Mobile No',
