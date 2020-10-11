@@ -39,125 +39,131 @@ class _ReportAccidentState extends State<ReportAccident> {
 
     return Scaffold(
         appBar: appbar,
-        backgroundColor: Color.fromRGBO(0, 172, 192, 1),
+        //backgroundColor: Color.fromRGBO(0, 172, 192, 1),
         body: ExpandableBottomSheet(
           background: Container(
             height: deviceAvailaHeigh * 0.7,
             width: devicewidth,
             margin: EdgeInsets.only(top: deviceAvailaHeigh * 0.1),
             color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Card(
-                  elevation: 6,
-                  child: Container(
-                    width: devicewidth * 0.85,
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Emergency Service",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: deviceAvailaHeigh * 0.5 * 0.03,
-                        ),
-                        Icon(
-                          Icons.favorite,
-                          size: deviceAvailaHeigh * 0.5 * 0.5,
-                          color: Colors.red,
-                        ),
-                        Container(
-                          margin: EdgeInsets.all(8.0),
-                          child: DropdownButton<String>(
-                            isExpanded: true,
-                            items: [
-                              DropdownMenuItem<String>(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Icon(Icons.car_repair),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text('BD51 SMR')
-                                  ],
-                                ),
-                                value: '1',
-                              ), //item1
-
-                              DropdownMenuItem<String>(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Icon(Icons.bus_alert),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text('HZ21 TTR')
-                                  ],
-                                ),
-                                value: '2',
-                              ), //second item
-
-                              DropdownMenuItem<String>(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Icon(Icons.motorcycle),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text('50c llgR')
-                                  ],
-                                ),
-                                value: '3',
-                              ),
-                            ],
-                            onChanged: (String value) {
-                              setState(() {
-                                _value = value;
-                              });
-                            },
-                            hint: Text(
-                              'Vehicle Number',
-                              textAlign: TextAlign.center,
-                            ),
-                            value: _value,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(8),
-                          child: RaisedButton.icon(
-                            icon: Icon(
-                              Icons.local_police,
-                              color: Colors.white,
-                            ),
-                            colorBrightness: Brightness.light,
-                            hoverColor: Colors.deepPurple,
-                            label: Text(
-                              'Call Ambulance',
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Card(
+                      elevation: 6,
+                      child: Container(
+                        width: devicewidth * 0.8,
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Emergency Service",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  fontSize: 18, fontWeight: FontWeight.bold),
                             ),
-                            color: Colors.pinkAccent,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4)),
-                            onPressed: () {},
-                          ),
+                            SizedBox(
+                              height: deviceAvailaHeigh * 0.5 * 0.03,
+                            ),
+                            Icon(
+                              Icons.favorite,
+                              size: deviceAvailaHeigh * 0.5 * 0.5,
+                              color: Colors.red,
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(8.0),
+                              child: DropdownButton<String>(
+                                isExpanded: true,
+                                items: [
+                                  DropdownMenuItem<String>(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Icon(Icons.car_repair),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text('BD51 SMR')
+                                      ],
+                                    ),
+                                    value: '1',
+                                  ), //item1
+
+                                  DropdownMenuItem<String>(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Icon(Icons.bus_alert),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text('HZ21 TTR')
+                                      ],
+                                    ),
+                                    value: '2',
+                                  ), //second item
+
+                                  DropdownMenuItem<String>(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Icon(Icons.motorcycle),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text('50c llgR')
+                                      ],
+                                    ),
+                                    value: '3',
+                                  ),
+                                ],
+                                onChanged: (String value) {
+                                  setState(() {
+                                    _value = value;
+                                  });
+                                },
+                                hint: Text(
+                                  'Vehicle Number',
+                                  textAlign: TextAlign.center,
+                                ),
+                                value: _value,
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(8),
+                              child: RaisedButton.icon(
+                                icon: Icon(
+                                  Icons.local_police,
+                                  color: Colors.white,
+                                ),
+                                colorBrightness: Brightness.light,
+                                hoverColor: Colors.deepPurple,
+                                label: Text(
+                                  'Call Ambulance',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                                color: Colors.pinkAccent,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4)),
+                                onPressed: () {},
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                )
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),

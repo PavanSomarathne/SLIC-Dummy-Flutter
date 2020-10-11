@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:slic_dummy_flutter/screens/login.dart';
+import 'package:slic_dummy_flutter/screens/userLoginDetails.dart';
 
 class UserPersionalDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: StepTwo());
+    return MaterialApp(
+      title: "Flutter App",
+      home: StepTwo(),
+      theme: new ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Theme.of(context).primaryColor,
+          primaryColorDark: Theme.of(context).primaryColor),
+    );
   }
 }
 
@@ -46,8 +54,133 @@ class _StepTwoState extends State<StepTwo> {
       });
   }
 
+  int _radioValue = 0;
+
+  void _handleRadioValueChange(int value) {
+    setState(() {
+      _radioValue = value;
+
+      switch (_radioValue) {
+        case 0:
+          break;
+        case 1:
+          break;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
+    final selectController = TextEditingController();
+    final firstnameController = TextEditingController();
+    final lastnameController = TextEditingController();
+
+    final select = Container(
+        height: 45,
+        padding: EdgeInsets.only(left: 15.0, right: 15.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25.0),
+            border: Border.all(color: Theme.of(context).primaryColor)),
+        margin:
+            EdgeInsets.only(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+        child: DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+          focusColor: Colors.cyan,
+          items: _p_ypes.map((String item) {
+            return DropdownMenuItem<String>(
+              value: item,
+              child: Text(item),
+            );
+          }).toList(),
+          onChanged: (String selected) {
+            setState(() {
+              this.selected = selected;
+            });
+          },
+          value: selected,
+          hint: Text("honorifics"),
+          style:
+              TextStyle(fontSize: 15.0, color: Theme.of(context).primaryColor),
+          isExpanded: true,
+        )));
+
+    final firstname = Container(
+      height: 45,
+      margin: EdgeInsets.only(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+      child: new Theme(
+          data: new ThemeData(
+            primaryColor: Theme.of(context).primaryColor,
+            primaryColorDark: Theme.of(context).primaryColor,
+          ),
+          child: TextField(
+            controller: firstnameController,
+            style: TextStyle(color: Theme.of(context).primaryColor),
+            decoration: new InputDecoration(
+              hintText: 'First Name',
+              hintStyle: TextStyle(
+                  fontSize: 15.0, color: Theme.of(context).primaryColor),
+              border: new OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                  borderSide:
+                      BorderSide(color: Theme.of(context).primaryColor)),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.0),
+                borderSide:
+                    BorderSide(width: 1, color: Theme.of(context).primaryColor),
+              ),
+            ),
+          )),
+    );
+
+    final lastname = Container(
+      height: 45,
+      margin: EdgeInsets.only(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+      child: new Theme(
+          data: new ThemeData(
+            primaryColor: Theme.of(context).primaryColor,
+            primaryColorDark: Theme.of(context).primaryColor,
+          ),
+          child: TextField(
+            controller: lastnameController,
+            style: TextStyle(color: Theme.of(context).primaryColor),
+            decoration: InputDecoration(
+              hintText: 'Last Name',
+              hintStyle: TextStyle(
+                fontSize: 15.0,
+                color: Theme.of(context).primaryColor,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.0),
+                borderSide: BorderSide(
+                  width: 1,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            ),
+          )),
+    );
+
+    final date = Container(
+      margin: EdgeInsets.only(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          RaisedButton(
+            onPressed: () => _selectDate(context),
+            child: Text("${selectedDate.toLocal()}".split(' ')[0]),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0),
+                side: BorderSide(color: Theme.of(context).primaryColor)),
+          ),
+        ],
+      ),
+    );
+
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -55,115 +188,120 @@ class _StepTwoState extends State<StepTwo> {
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
-        body: SingleChildScrollView(
-            child: Column(
-          children: [
-            Container(
-                height: 45,
-                padding: EdgeInsets.only(left: 15.0, right: 15.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25.0),
-                    border: Border.all(color: Colors.teal)),
-                margin: EdgeInsets.only(
-                    top: 60.0, left: 20.0, bottom: 10.0, right: 20.0),
-                child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                  focusColor: Colors.cyan,
-                  items: _p_ypes.map((String item) {
-                    return DropdownMenuItem<String>(
-                      value: item,
-                      child: Text(item),
-                    );
-                  }).toList(),
-                  onChanged: (String selected) {
-                    setState(() {
-                      this.selected = selected;
-                    });
-                  },
-                  value: selected,
-                  hint: Text("honorifics"),
-                  style: TextStyle(fontSize: 15.0, color: Colors.teal),
-                  isExpanded: true,
-                ))),
+        body: ListView(
+          children: <Widget>[
             Container(
               height: 45,
               margin: EdgeInsets.only(
-                  top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
-              child: new Theme(
-                  data: new ThemeData(
-                    primaryColor: Colors.teal,
-                    primaryColorDark: Colors.teal,
-                  ),
-                  child: TextField(
-                    obscureText: true,
-                    style: TextStyle(color: Colors.teal),
-                    decoration: new InputDecoration(
-                      hintText: 'First Name',
-                      hintStyle: TextStyle(fontSize: 15.0, color: Colors.teal),
-                      border: new OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: BorderSide(color: Colors.teal)),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                        borderSide: BorderSide(width: 1, color: Colors.teal),
-                      ),
-                    ),
-                  )),
-            ),
-            Container(
-              height: 45,
-              margin: EdgeInsets.only(
-                  top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
-              child: new Theme(
-                  data: new ThemeData(
-                    primaryColor: Colors.teal,
-                    primaryColorDark: Colors.teal,
-                  ),
-                  child: TextField(
-                    obscureText: true,
-                    style: TextStyle(color: Colors.teal),
-                    decoration: InputDecoration(
-                      hintText: 'Last Name',
-                      hintStyle: TextStyle(fontSize: 15.0, color: Colors.teal),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                        borderSide: BorderSide(width: 1, color: Colors.teal),
-                      ),
-                    ),
-                  )),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                  top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+                  top: 50.0, left: 20.0, bottom: 10.0, right: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  RaisedButton(
-                    onPressed: () => _selectDate(context),
-                    child: Text("${selectedDate.toLocal()}".split(' ')[0]),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                        side: BorderSide(color: Colors.teal)),
+                  Container(
+                    width: (width / 4) * 1.0,
+                    child: Text('Gender :',
+                        softWrap: true,
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Theme.of(context).primaryColor,
+                        )),
+                  ),
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      new Radio(
+                        value: 0,
+                        groupValue: _radioValue,
+                        onChanged: _handleRadioValueChange,
+                      ),
+                      new Text(
+                        'Male',
+                        style: new TextStyle(
+                          fontSize: 15.0,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                      new Radio(
+                        value: 1,
+                        groupValue: _radioValue,
+                        onChanged: _handleRadioValueChange,
+                      ),
+                      new Text(
+                        'Female',
+                        style: new TextStyle(
+                          fontSize: 15.0,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
+            select,
+            SizedBox(
+              height: 15.0,
+            ),
+            firstname,
+            SizedBox(
+              height: 15.0,
+            ),
+            lastname,
+            SizedBox(
+              height: 15.0,
+            ),
+            date,
             Container(
               height: 45,
               margin: EdgeInsets.only(
-                  top: 60.0, left: 20.0, bottom: 10.0, right: 20.0),
+                  top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
               child: FlatButton(
-                color: Colors.teal,
+                color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
                 disabledTextColor: Colors.black,
                 padding: EdgeInsets.all(8.0),
                 splashColor: Colors.blueAccent,
                 onPressed: () {
-                  /*...*/
+                  if (firstnameController != null &&
+                      firstnameController.text == "abc" &&
+                      lastnameController != null) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
+                    firstnameController.clear();
+                    lastnameController.clear();
+                  } else {
+                    // Widget okButton = FlatButton(
+                    //   child: Text("OK"),
+                    //   onPressed: () {
+                    //     Navigator.push(context,
+                    //         MaterialPageRoute(builder: (context) => Login()));
+                    //   },
+                    // );
+
+                    AlertDialog alert = AlertDialog(
+                      title: Text("Error !"),
+                      titleTextStyle: TextStyle(
+                          color: Colors.red[900], fontWeight: FontWeight.bold),
+                      content: Text(
+                        "Please Enter Correct Username and Password",
+                      ),
+                      contentTextStyle: TextStyle(
+                        color: Colors.red,
+                      ),
+                      // actions: [
+                      //   okButton,
+                      // ],
+                    );
+
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return alert;
+                      },
+                    );
+                  }
                 },
                 child: Text(
                   "Finish",
@@ -171,15 +309,15 @@ class _StepTwoState extends State<StepTwo> {
                 ),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25.0),
-                    side: BorderSide(color: Colors.teal)),
+                    side: BorderSide(color: Theme.of(context).primaryColor)),
               ),
             ),
             Container(
               height: 45,
               margin: EdgeInsets.only(
-                  top: 1.0, left: 20.0, bottom: 10.0, right: 20.0),
+                  top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
               child: FlatButton(
-                color: Colors.teal,
+                color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
                 disabledTextColor: Colors.black,
@@ -188,7 +326,7 @@ class _StepTwoState extends State<StepTwo> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Loginpage()),
+                    MaterialPageRoute(builder: (context) => StepOne()),
                   );
                 },
                 child: Text(
@@ -197,11 +335,11 @@ class _StepTwoState extends State<StepTwo> {
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25.0),
-                  side: BorderSide(color: Colors.teal),
+                  side: BorderSide(color: Theme.of(context).primaryColor),
                 ),
               ),
             ),
           ],
-        )));
+        ));
   }
 }

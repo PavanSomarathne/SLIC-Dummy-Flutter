@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:slic_dummy_flutter/screens/Mcash.dart';
+import 'package:slic_dummy_flutter/screens/add_policy.dart';
+import 'package:slic_dummy_flutter/screens/news_screen.dart';
+import 'package:slic_dummy_flutter/screens/offers_screen.dart';
 import 'package:slic_dummy_flutter/screens/Motor_policy_details_screen.dart';
 import 'package:slic_dummy_flutter/screens/covid_dashboard.dart';
 import 'package:slic_dummy_flutter/screens/news_screen.dart';
@@ -11,6 +15,8 @@ import 'package:slic_dummy_flutter/widgets/MotorPolicy.dart';
 import 'package:slic_dummy_flutter/screens/ContactUs.dart';
 
 import './tabs_insurance_details.dart';
+import 'life_insurance_details_screen.dart';
+import 'life_policy_details.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -165,8 +171,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                   onTap: () {
-                    // Update the state of the app.
-                    // ...
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mcash()),
+                    );
                   },
                 ),
                 ListTile(
@@ -189,6 +197,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         appBar: AppBar(
+          actions: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPolicy(),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 10.0),
+                child: Icon(
+                  MdiIcons.plus,
+                  color: Colors.white,
+                  size: 35,
+                ),
+              ),
+            )
+          ],
           title: Text('Dashboard'),
           backgroundColor: Color.fromRGBO(0, 172, 192, 100),
         ),
@@ -519,27 +547,37 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 68,
-                        width: 100,
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          )),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.new_releases,
-                                size: 40,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                "Offers",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OffersScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 68,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            )),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.new_releases,
+                                  size: 40,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Offers",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
