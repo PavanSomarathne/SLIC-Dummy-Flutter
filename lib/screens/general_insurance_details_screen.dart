@@ -26,7 +26,7 @@ class GeneralInsuranceDetails extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            height: (_height - appbar.preferredSize.height) * 1.4,
+            height: (_height - appbar.preferredSize.height) * 1.5,
             child: new Stack(
               children: <Widget>[
                 Positioned(
@@ -79,7 +79,7 @@ class GeneralInsuranceDetails extends StatelessWidget {
                                     '${selectedGeneralInsur.gIdescrption}',
                                     style: TextStyle(
                                       wordSpacing: 5,
-                                      fontSize: 14,
+                                      fontSize: 16,
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),

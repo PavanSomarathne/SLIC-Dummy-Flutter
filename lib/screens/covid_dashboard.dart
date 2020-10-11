@@ -322,7 +322,7 @@ class CovidDashboard extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(left: 10, right: 10),
-            height: 250,
+            height: 880,
             width: width,
             padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
             decoration: BoxDecoration(
@@ -359,7 +359,7 @@ class CovidDashboard extends StatelessWidget {
                         padding: EdgeInsets.all(4),
                         margin: EdgeInsets.all(8),
                         height: 30,
-                        width: width * 0.4,
+                        width: width * 0.8,
                         color: Colors.teal,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -370,7 +370,7 @@ class CovidDashboard extends StatelessWidget {
                                   TextStyle(fontSize: 13, color: Colors.white),
                             ),
                             Text(
-                              "200",
+                              "1600",
                               style:
                                   TextStyle(fontSize: 13, color: Colors.white),
                             )
@@ -381,7 +381,7 @@ class CovidDashboard extends StatelessWidget {
                         padding: EdgeInsets.all(4),
                         margin: EdgeInsets.all(8),
                         height: 30,
-                        width: width * 0.5,
+                        width: width * 0.78,
                         color: Colors.orange,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -392,7 +392,7 @@ class CovidDashboard extends StatelessWidget {
                                   TextStyle(fontSize: 13, color: Colors.white),
                             ),
                             Text(
-                              "1200",
+                              "1500",
                               style:
                                   TextStyle(fontSize: 13, color: Colors.white),
                             )
@@ -403,7 +403,7 @@ class CovidDashboard extends StatelessWidget {
                         margin: EdgeInsets.all(8),
                         padding: EdgeInsets.all(4),
                         height: 30,
-                        width: width * 0.2,
+                        width: width * 0.54,
                         color: Colors.purpleAccent,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -414,7 +414,7 @@ class CovidDashboard extends StatelessWidget {
                                   TextStyle(fontSize: 13, color: Colors.white),
                             ),
                             Text(
-                              "42",
+                              "800",
                               style:
                                   TextStyle(fontSize: 13, color: Colors.white),
                             )
@@ -425,7 +425,7 @@ class CovidDashboard extends StatelessWidget {
                         margin: EdgeInsets.all(8),
                         padding: EdgeInsets.all(4),
                         height: 30,
-                        width: width * 0.3,
+                        width: width * 0.45,
                         color: Colors.brown,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -436,7 +436,293 @@ class CovidDashboard extends StatelessWidget {
                                   TextStyle(fontSize: 13, color: Colors.white),
                             ),
                             Text(
-                              "123",
+                              "780",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.46,
+                        color: Colors.blueAccent,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Kandy",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "790",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.75,
+                        color: Colors.deepPurple,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Ratnapura",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "1000",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.39,
+                        color: Colors.lime,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Jaffna",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "650",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.62,
+                        color: Colors.indigo,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Anuradhapura",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "860",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.38,
+                        color: Colors.lightGreen,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Polonnaruwa",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "650",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.38,
+                        color: Colors.deepOrangeAccent,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Puttalam",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "650",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.41,
+                        color: Colors.pink,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Hambantota",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "680",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.48,
+                        color: Colors.teal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Galle",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "790",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.39,
+                        color: Colors.lightBlueAccent,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Monaragala",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "620",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.6,
+                        color: Colors.purple,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Batticaloa",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "870",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.6,
+                        color: Colors.blueGrey,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Ampara",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "860",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.48,
+                        color: Colors.amber,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Matara",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "790",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(4),
+                        height: 30,
+                        width: width * 0.48,
+                        color: Colors.cyan,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Kegalle",
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.white),
+                            ),
+                            Text(
+                              "790",
                               style:
                                   TextStyle(fontSize: 13, color: Colors.white),
                             )

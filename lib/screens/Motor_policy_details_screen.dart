@@ -3,7 +3,7 @@ import 'package:getwidget/getwidget.dart';
 
 class MotorPolicyDetails extends StatefulWidget {
   final policy;
-   MotorPolicyDetails({Key key, this.policy}) : super(key: key);
+  MotorPolicyDetails({Key key, this.policy}) : super(key: key);
 
   @override
   _MotorPolicyDetailsState createState() => _MotorPolicyDetailsState();
@@ -19,6 +19,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
     final deviceAvailaHeigh = (MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top);
     final devicewidth = (MediaQuery.of(context).size.width);
+    bool IsActive = widget.policy['acti'] == "Active" ? true : false;
 
     return Scaffold(
       appBar: appbar,
@@ -30,7 +31,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
               children: [
                 Container(
                   padding: EdgeInsets.all(8),
-                  width: 150,
+                  width: 180,
                   height: deviceAvailaHeigh * 0.17,
                   child: Card(
                     elevation: 5,
@@ -54,7 +55,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                           ),
                         ),
                         Text(
-                          'RS15000',
+                          widget.policy['total'],
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
@@ -89,7 +90,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                           Container(
                             padding: EdgeInsets.all(1),
                             child: Text(
-                              'Sumudu lakruwan',
+                              widget.policy['fullname'],
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 18),
                             ),
@@ -100,15 +101,17 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Icon(
-                                  Icons.check_circle_outline,
-                                  color: Colors.green,
+                                  IsActive
+                                      ? Icons.check_circle_outline
+                                      : Icons.dangerous,
+                                  color: IsActive ? Colors.green : Colors.red,
                                   size: 28,
                                 ),
                                 SizedBox(
                                   height: 1,
                                 ),
                                 Text(
-                                  'Active',
+                                  widget.policy['acti'],
                                   style: TextStyle(fontSize: 14),
                                 ),
                               ],
@@ -141,7 +144,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                                   ),
                                   Container(
                                     child: Text(
-                                      'RS 74351',
+                                      widget.policy['renewal'],
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18),
@@ -253,7 +256,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                               style: TextStyle(
                                 fontSize: 17.0,
                               )),
-                          Text('23/10/2019',
+                          Text(widget.policy['startdate'],
                               textAlign: TextAlign.end,
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -271,7 +274,7 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                               style: TextStyle(
                                 fontSize: 17.0,
                               )),
-                          Text('22/10/2020',
+                          Text(widget.policy['endDate'],
                               textAlign: TextAlign.end,
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -293,19 +296,19 @@ class _MotorPolicyDetailsState extends State<MotorPolicyDetails> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '167/1A,',
+                                  widget.policy['adrrsline1'],
                                   style: TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),
                                 Text(
-                                  'Thalahena,',
+                                  widget.policy['adrrsline2'],
                                   style: TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),
                                 Text(
-                                  'Malabe',
+                                  widget.policy['adrrsline3'],
                                   style: TextStyle(
                                     fontSize: 17.0,
                                   ),

@@ -26,7 +26,7 @@ class LifeInsuranceDetails extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            height: (_height - appbar.preferredSize.height) * 1.4,
+            height: (_height - appbar.preferredSize.height) * 1.5,
             child: new Stack(
               children: <Widget>[
                 Positioned(
@@ -57,7 +57,7 @@ class LifeInsuranceDetails extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * .90,
                       height: (MediaQuery.of(context).size.height -
                               appbar.preferredSize.height) *
-                          1.35,
+                          2.5,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -81,6 +81,7 @@ class LifeInsuranceDetails extends StatelessWidget {
                                       wordSpacing: 5,
                                       fontSize: 14,
                                     ),
+                                    textAlign: TextAlign.justify,
                                   ),
                                 ]),
                           ),
@@ -100,6 +101,7 @@ class LifeInsuranceDetails extends StatelessWidget {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
+                                  textAlign: TextAlign.center,
                                 ),
                                 SizedBox(
                                   height: 6,
@@ -113,23 +115,31 @@ class LifeInsuranceDetails extends StatelessWidget {
                                       children: [
                                         Container(
                                           padding: EdgeInsets.all(5),
-                                          child:
-                                              Text(selectedLifeInsur.benefits1),
+                                          child: Text(
+                                            selectedLifeInsur.benefits1,
+                                            textAlign: TextAlign.justify,
+                                          ),
                                         ),
                                         Container(
                                           padding: EdgeInsets.all(5),
-                                          child:
-                                              Text(selectedLifeInsur.benefits2),
+                                          child: Text(
+                                            selectedLifeInsur.benefits2,
+                                            textAlign: TextAlign.justify,
+                                          ),
                                         ),
                                         Container(
                                           padding: EdgeInsets.all(5),
-                                          child:
-                                              Text(selectedLifeInsur.benefits3),
+                                          child: Text(
+                                            selectedLifeInsur.benefits3,
+                                            textAlign: TextAlign.justify,
+                                          ),
                                         ),
                                         Container(
                                           padding: EdgeInsets.all(5),
-                                          child:
-                                              Text(selectedLifeInsur.benefits4),
+                                          child: Text(
+                                            selectedLifeInsur.benefits4,
+                                            textAlign: TextAlign.justify,
+                                          ),
                                         ),
                                         Container(
                                           padding: EdgeInsets.all(5),
@@ -171,12 +181,16 @@ class LifeInsuranceDetails extends StatelessWidget {
                                         Container(
                                           padding: EdgeInsets.all(5),
                                           child: Text(
-                                              selectedLifeInsur.eligibility1),
+                                            selectedLifeInsur.eligibility1,
+                                            textAlign: TextAlign.justify,
+                                          ),
                                         ),
                                         Container(
                                           padding: EdgeInsets.all(5),
                                           child: Text(
-                                              selectedLifeInsur.eligibility2),
+                                            selectedLifeInsur.eligibility2,
+                                            textAlign: TextAlign.justify,
+                                          ),
                                         ),
                                         Container(),
                                       ]),

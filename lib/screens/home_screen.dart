@@ -25,10 +25,66 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   final mPolicies = [
-    {'name': 'CM PVT CAR', 'no': 'M1052', 'stat': 'INFORCE', 'y': '13'},
-    {'name': 'PVT CAR', 'no': 'M1053', 'stat': 'INFORCE', 'y': '11'},
-    {'name': 'PVT BIKE', 'no': 'M8042', 'stat': 'INFORCE', 'y': '5'},
-    {'name': 'PVT MOTOR E', 'no': 'M8062', 'stat': 'EXPIRED', 'y': '0'},
+    {
+      'name': 'CM PVT CAR',
+      'no': 'M1052',
+      'stat': 'INFORCE',
+      'y': '13',
+      'total': 'Rs 2,600,000',
+      'renewal': 'Rs 74,351',
+      'startdate': '23/10/2019',
+      'endDate': '22/12/2020',
+      'adrrsline1': '167/1A,',
+      'adrrsline2': 'Thalahena',
+      'adrrsline3': 'Malabe',
+      'fullname': 'Sumudu Lakruwan',
+      'acti': 'Active'
+    },
+    {
+      'name': 'PVT CAR',
+      'no': 'M1053',
+      'stat': 'INFORCE',
+      'y': '11',
+      'total': 'Rs 1,800,000',
+      'renewal': 'Rs 64,351',
+      'startdate': '16/08/2019',
+      'endDate': '08/12/2020',
+      'adrrsline1': '167/1A,',
+      'adrrsline2': 'Thalahena',
+      'adrrsline3': 'Malabe',
+      'fullname': 'Sumudu Lakruwan',
+      'acti': 'Active'
+    },
+    {
+      'name': 'PVT BIKE',
+      'no': 'M8042',
+      'stat': 'INFORCE',
+      'y': '5',
+      'total': 'Rs 1,200,000',
+      'renewal': 'Rs 54250',
+      'startdate': '16/05/2019',
+      'endDate': '10/12/2020',
+      'adrrsline1': '167/1A,',
+      'adrrsline2': 'Thalahena',
+      'adrrsline3': 'Malabe',
+      'fullname': 'Ushan Perera',
+      'acti': 'Active'
+    },
+    {
+      'name': 'PVT MOTOR E',
+      'no': 'M8062',
+      'stat': 'EXPIRED',
+      'y': '0',
+      'total': 'Rs 1,400,000',
+      'renewal': 'Rs 82250',
+      'startdate': '25/04/2019',
+      'endDate': '05/02/2020',
+      'adrrsline1': '167/1A,',
+      'adrrsline2': 'Thalahena',
+      'adrrsline3': 'Malabe',
+      'fullname': 'Ushan Perera',
+      'acti': 'Expired'
+    },
   ];
   void selectInsuranceproducts(BuildContext ctx) {
     Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
