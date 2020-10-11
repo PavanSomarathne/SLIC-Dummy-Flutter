@@ -178,8 +178,9 @@ class _StepTwoState extends State<StepTwo> {
               onPressed: () => _selectDate(context),
               child: Text("${selectedDate.toLocal()}".split(' ')[0]),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  side: BorderSide(color: Theme.of(context).primaryColor)),
+                borderRadius: BorderRadius.circular(25.0),
+                side: BorderSide(color: Theme.of(context).primaryColor),
+              ),
             ),
           ),
         ],
@@ -257,6 +258,20 @@ class _StepTwoState extends State<StepTwo> {
             SizedBox(
               height: 15.0,
             ),
+            Container(
+              margin: EdgeInsets.only(
+                  top: 10.0, left: 20.0, bottom: 1.0, right: 20.0),
+              child: new RichText(
+                text: new TextSpan(
+                  children: [
+                    new TextSpan(
+                      text: 'Date Of Birth',
+                      style: new TextStyle(color: Colors.blue),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             date,
             Container(
               height: 45,
@@ -270,9 +285,8 @@ class _StepTwoState extends State<StepTwo> {
                 padding: EdgeInsets.all(8.0),
                 splashColor: Colors.blueAccent,
                 onPressed: () {
-                  if (firstnameController != null &&
-                      firstnameController.text == "abc" &&
-                      lastnameController != null) {
+                  if (firstnameController.text.trim() != '' &&
+                      lastnameController.text.trim() != '') {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Login()));
                     firstnameController.clear();
