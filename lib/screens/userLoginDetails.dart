@@ -166,12 +166,11 @@ class _UserLoginDetailsState extends State<UserLoginDetails> {
         padding: EdgeInsets.all(8.0),
         splashColor: Colors.blueAccent,
         onPressed: () {
-          if (usernameController.text != null &&
-              usernameController.text == "abc" &&
-              passwordController.text != null &&
-              confirmController.text != null &&
-              emailController.text != null &&
-              nicController.text != null) {
+          if (usernameController.text.trim() != '' &&
+              passwordController.text.trim() != '' &&
+              confirmController.text.trim() != '' &&
+              emailController.text.trim() != '' &&
+              nicController.text.trim() != '') {
             Navigator.push(
                 context,
                 MaterialPageRoute(

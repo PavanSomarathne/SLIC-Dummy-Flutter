@@ -166,16 +166,21 @@ class _StepTwoState extends State<StepTwo> {
     );
 
     final date = Container(
+      width: width,
       margin: EdgeInsets.only(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          RaisedButton(
-            onPressed: () => _selectDate(context),
-            child: Text("${selectedDate.toLocal()}".split(' ')[0]),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0),
-                side: BorderSide(color: Theme.of(context).primaryColor)),
+          SizedBox(
+            width: width,
+            child: RaisedButton(
+              color: Colors.white,
+              onPressed: () => _selectDate(context),
+              child: Text("${selectedDate.toLocal()}".split(' ')[0]),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                  side: BorderSide(color: Theme.of(context).primaryColor)),
+            ),
           ),
         ],
       ),
@@ -191,6 +196,7 @@ class _StepTwoState extends State<StepTwo> {
         body: ListView(
           children: <Widget>[
             Container(
+              width: width,
               height: 45,
               margin: EdgeInsets.only(
                   top: 50.0, left: 20.0, bottom: 10.0, right: 20.0),
