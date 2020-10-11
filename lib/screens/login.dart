@@ -7,6 +7,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Flutter App",
       home: LoginPage(),
       theme: new ThemeData(
@@ -95,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           onPressed: () {
             if (usernameController != null &&
-                usernameController.text == "abc" &&
+                usernameController.text == "supun" &&
                 passwordController != null &&
                 passwordController.text == "123") {
               Navigator.push(context,
@@ -162,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   new TextSpan(
                     text: 'Forgot Password?',
-                    style: new TextStyle(color: Colors.blue),
+                    style: new TextStyle(color: Theme.of(context).primaryColor),
                   ),
                 ],
               ),

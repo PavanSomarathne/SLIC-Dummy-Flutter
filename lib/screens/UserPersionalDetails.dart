@@ -6,6 +6,7 @@ class UserPersionalDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Flutter App",
       home: StepTwo(),
       theme: new ThemeData(
@@ -23,6 +24,7 @@ class StepTwo extends StatefulWidget {
 
 class _StepTwoState extends State<StepTwo> {
   var _p_ypes = [
+    "Title",
     "Mr.",
     "Mrs.",
     "Miss.",
@@ -38,7 +40,7 @@ class _StepTwoState extends State<StepTwo> {
     "Dr.(Mrs).",
     "Maj.Gen."
   ];
-  var selected = "Mr.";
+  var selected = "Title";
 
   DateTime selectedDate = DateTime.now();
 
@@ -46,8 +48,8 @@ class _StepTwoState extends State<StepTwo> {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
+        firstDate: DateTime(1950, 8),
+        lastDate: DateTime(2050));
     if (picked != null && picked != selectedDate)
       setState(() {
         selectedDate = picked;
@@ -191,7 +193,10 @@ class _StepTwoState extends State<StepTwo> {
         appBar: AppBar(
           title: Text(
             'Step Two-Sign Up-User Personal Details',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 17.0),
           ),
         ),
         body: ListView(
@@ -200,7 +205,7 @@ class _StepTwoState extends State<StepTwo> {
               width: width,
               height: 45,
               margin: EdgeInsets.only(
-                  top: 50.0, left: 20.0, bottom: 10.0, right: 20.0),
+                  top: 20.0, left: 20.0, bottom: 10.0, right: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
@@ -248,15 +253,15 @@ class _StepTwoState extends State<StepTwo> {
             ),
             select,
             SizedBox(
-              height: 15.0,
+              height: 10.0,
             ),
             firstname,
             SizedBox(
-              height: 15.0,
+              height: 10.0,
             ),
             lastname,
             SizedBox(
-              height: 15.0,
+              height: 10.0,
             ),
             Container(
               margin: EdgeInsets.only(
@@ -266,7 +271,8 @@ class _StepTwoState extends State<StepTwo> {
                   children: [
                     new TextSpan(
                       text: 'Date Of Birth',
-                      style: new TextStyle(color: Colors.blue),
+                      style:
+                          new TextStyle(color: Theme.of(context).primaryColor),
                     ),
                   ],
                 ),
@@ -305,7 +311,7 @@ class _StepTwoState extends State<StepTwo> {
                       titleTextStyle: TextStyle(
                           color: Colors.red[900], fontWeight: FontWeight.bold),
                       content: Text(
-                        "Please Enter Correct Username and Password",
+                        "Please Fill All Details",
                       ),
                       contentTextStyle: TextStyle(
                         color: Colors.red,

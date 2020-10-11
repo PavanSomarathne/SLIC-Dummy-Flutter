@@ -108,7 +108,7 @@ class Mcash extends StatelessWidget {
       height: 100.0,
     );
     return Container(
-      margin: EdgeInsets.only(top: 100.0, bottom: 5.0),
+      margin: EdgeInsets.only(top: 90.0, bottom: 5.0),
       child: img,
     );
   }
